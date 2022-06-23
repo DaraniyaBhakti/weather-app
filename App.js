@@ -7,7 +7,6 @@ import UnitsPicker from './components/UnitsPicker'
 import ReloadIcon from './components/ReloadIcon'
 import WeatherDetails from './components/WeatherDetails'
 import { colors } from './utils'
-// import { WEATHER_API_KEY } from 'react-native-dotenv'
 
 const BASE_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather?'
 export default function App() {
@@ -25,7 +24,7 @@ export default function App() {
       setCurrentWeather(null)
       setErrorMessage(null)
       try {
-          let { status } = await Location.requestPermissionsAsync()
+          let { status } = await Location.requestForegroundPermissionsAsync()
 
           if (status !== 'granted') {
               setErrorMessage('Access to location is needed to run the app')
